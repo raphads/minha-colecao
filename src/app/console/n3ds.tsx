@@ -30,10 +30,28 @@ export default function Console3DS() {
   async function salvarComStatus(jogo: any, status: string) {
     try {
       const favoritos = await AsyncStorage.getItem("favoritos");
-      const lista = favoritos ? JSON.parse(favoritos) : [];
-      lista.push({ ...jogo, console: "3DS", status });
+      let lista = favoritos ? JSON.parse(favoritos) : [];
+
+      const index = lista.findIndex((j: any) => j.id === jogo.id);
+
+      if (index !== -1) {
+        if (status === "Jogando" || status === "Fechado") {
+          lista[index].status = status;
+        } else if (status === "Tenho") {
+          lista[index].tenho = true;
+        }
+      } else {
+        const novo = { ...jogo, console: "3DS" };
+        if (status === "Jogando" || status === "Fechado") {
+          novo.status = status;
+        } else if (status === "Tenho") {
+          novo.tenho = true;
+        }
+        lista.push(novo);
+      }
+
       await AsyncStorage.setItem("favoritos", JSON.stringify(lista));
-      alert(`${jogo.name} marcado como "${status}"!`);
+      alert(`${jogo.name} atualizado como "${status}"!`);
     } catch (error) {
       console.error("Erro ao salvar favorito:", error);
     }
@@ -58,30 +76,40 @@ export default function Console3DS() {
 
             {item.cover?.url && (
               <Image
-                source={{
-                  uri: item.cover.url.replace("t_thumb", "t_cover_big"),
-                }}
+                source={{ uri: item.cover.url.replace("t_thumb", "t_cover_big") }}
                 style={styles.cover}
               />
             )}
 
             <View style={styles.row}>
               <TouchableOpacity
-                style={[styles.button, { backgroundColor: "#1976D2" }]}
+                style={[
+                  styles.button,
+                  { backgroundColor: "#1976D2", opacity: item.status === "Jogando" ? 0.5 : 1 }
+                ]}
+                disabled={item.status === "Jogando"}
                 onPress={() => salvarComStatus(item, "Jogando")}
               >
                 <Text style={styles.buttonText}>Jogando</Text>
               </TouchableOpacity>
 
               <TouchableOpacity
-                style={[styles.button, { backgroundColor: "#388E3C" }]}
+                style={[
+                  styles.button,
+                  { backgroundColor: "#388E3C", opacity: item.status === "Fechado" ? 0.5 : 1 }
+                ]}
+                disabled={item.status === "Fechado"}
                 onPress={() => salvarComStatus(item, "Fechado")}
               >
                 <Text style={styles.buttonText}>Fechado</Text>
               </TouchableOpacity>
 
               <TouchableOpacity
-                style={[styles.button, { backgroundColor: "#F57C00" }]}
+                style={[
+                  styles.button,
+                  { backgroundColor: "#F57C00", opacity: item.tenho ? 0.5 : 1 }
+                ]}
+                disabled={item.tenho}
                 onPress={() => salvarComStatus(item, "Tenho")}
               >
                 <Text style={styles.buttonText}>Tenho</Text>
