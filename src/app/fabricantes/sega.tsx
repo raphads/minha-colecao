@@ -1,23 +1,19 @@
 import { useRouter } from 'expo-router';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
-export default function Home() {
+export default function Sega() {
   const router = useRouter();
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Minha Coleção</Text>
+      <Text style={styles.title}>Sega</Text>
 
-      <TouchableOpacity style={[styles.card, { backgroundColor: '#ef2020' }]} onPress={() => router.push('/fabricantes/nintendo')}>
-        <Text style={styles.cardText}>Nintendo</Text>
+      <TouchableOpacity style={[styles.card, { backgroundColor: '#E65100' }]} onPress={() => router.push('/console/megadrive')}>
+        <Text style={styles.cardText}>Mega Drive</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={[styles.card, { backgroundColor: '#2274de' }]} onPress={() => router.push('/fabricantes/sega')}>
-        <Text style={styles.cardText}>Sega</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity style={[styles.card, { backgroundColor: '#03165f' }]} onPress={() => router.push('/fabricantes/sony')}>
-        <Text style={styles.cardText}>Sony</Text>
+      <TouchableOpacity style={[styles.card, { backgroundColor: '#FF9800' }]} onPress={() => router.push('/console/dreamcast')}>
+        <Text style={styles.cardText}>Dreamcast</Text>
       </TouchableOpacity>
     </View>
   );
@@ -30,13 +26,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 20,
     paddingHorizontal: 20,
-    backgroundColor: '#F5F5F5',
+    backgroundColor: '#FFF3E0',
   },
   title: {
-    fontSize: 28,
+    fontSize: 26,
     fontWeight: 'bold',
     marginBottom: 40,
-    color: '#333',
+    color: '#E65100',
   },
   card: {
     width: '80%',
