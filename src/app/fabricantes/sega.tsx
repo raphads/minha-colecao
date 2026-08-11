@@ -1,20 +1,31 @@
 import { useRouter } from 'expo-router';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Button, Image, StyleSheet, Text, View } from 'react-native';
 
 export default function Sega() {
   const router = useRouter();
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Sega</Text>
+      <Image source={require('../../assets/sega.png')} style={styles.logo} resizeMode="contain" />
+      
 
-      <TouchableOpacity style={[styles.card, { backgroundColor: '#E65100' }]} onPress={() => router.push('/console/megadrive')}>
-        <Text style={styles.cardText}>Mega Drive</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity style={[styles.card, { backgroundColor: '#FF9800' }]} onPress={() => router.push('/console/dreamcast')}>
-        <Text style={styles.cardText}>Dreamcast</Text>
-      </TouchableOpacity>
+      <View style={styles.buttons}>
+        <View style={styles.btnWrapper}>
+          <Button title="Mega Drive" onPress={() => router.push('/console/megadrive')} />
+        </View>
+        <View style={styles.btnWrapper}>
+          <Button title="Master System" onPress={() => router.push('/console/mastersystes')} />
+        </View>
+         <View style={styles.btnWrapper}>
+          <Button title="Game Gear" onPress={() => router.push('/console/gamegear')} />
+        </View>
+         <View style={styles.btnWrapper}>
+          <Button title="Sega Saturn" onPress={() => router.push('/console/segasa')} />
+        </View>
+         <View style={styles.btnWrapper}>
+          <Button title="Dreamcast" onPress={() => router.push('/console/dreamcast')} />
+        </View>
+      </View>
     </View>
   );
 }
@@ -24,29 +35,29 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    gap: 20,
     paddingHorizontal: 20,
-    backgroundColor: '#FFF3E0',
+    backgroundColor: '#1238e0',
+  },
+  logo: {
+    width: 160,
+    height: 160,
+    marginBottom: 20,
   },
   title: {
-    fontSize: 26,
+    fontSize: 24,
     fontWeight: 'bold',
-    marginBottom: 40,
-    color: '#E65100',
+    color: '#ce0617',
+    marginBottom: 24,
   },
-  card: {
-    width: '80%',
-    paddingVertical: 20,
-    borderRadius: 12,
+  buttons: {
+    width: '100%',
+    gap: 12,
     alignItems: 'center',
-    shadowColor: '#000',
-    shadowOpacity: 0.2,
-    shadowRadius: 4,
-    elevation: 5,
+    
   },
-  cardText: {
-    fontSize: 20,
-    color: '#fff',
-    fontWeight: '600',
+  btnWrapper: {
+    width: '100%',
+    maxWidth: 360,
+    color: '#ce0617',
   },
 });

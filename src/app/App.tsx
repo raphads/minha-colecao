@@ -1,5 +1,5 @@
 import React from "react";
-import Console3DS from "../app/console/n3ds";
+import Console3DS from "../app/console/nintendo/n3ds";
 import MinhaColecao from "../app/console/MinhaColecao";
 
 

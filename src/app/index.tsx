@@ -1,12 +1,16 @@
 import { useRouter } from 'expo-router';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View, Image } from 'react-native';
 
 export default function Home() {
   const router = useRouter();
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Minha Coleção</Text>
+     <Image source={require('../assets/logo.png')} style={styles.logo} resizeMode="contain" />
+
+      <TouchableOpacity style={[styles.card, { backgroundColor: '#ccd1e2' }]} onPress={() => router.push('/console/MinhaColecao')}>
+        <Text style={styles.cardText}>Minha Coleção</Text>
+      </TouchableOpacity>
 
       <TouchableOpacity style={[styles.card, { backgroundColor: '#ef2020' }]} onPress={() => router.push('/fabricantes/nintendo')}>
         <Text style={styles.cardText}>Nintendo</Text>
@@ -18,6 +22,10 @@ export default function Home() {
 
       <TouchableOpacity style={[styles.card, { backgroundColor: '#03165f' }]} onPress={() => router.push('/fabricantes/sony')}>
         <Text style={styles.cardText}>Sony</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={[styles.card, { backgroundColor: '#035f06' }]} onPress={() => router.push('/fabricantes/sony')}>
+        <Text style={styles.cardText}>Xbox</Text>
       </TouchableOpacity>
     </View>
   );
@@ -52,5 +60,10 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: '#fff',
     fontWeight: '600',
+  },
+  logo: {
+    width: 160,
+    height: 160,
+    marginBottom: 20,
   },
 });
