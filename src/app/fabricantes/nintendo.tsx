@@ -1,56 +1,62 @@
 import { useRouter } from 'expo-router';
-import { Button, Image, StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import {
+  View,
+  FlatList,
+  TouchableOpacity,
+  Image,
+  Text,
+  StyleSheet,
+  Dimensions,
+} from 'react-native';
+
+const consoles = [
+  { key: 'nes', title: 'NES', route: '/console/nintendo/nes', image: require('../../assets/consoles/nes.png') },
+  { key: 'snes', title: 'SNES', route: '/console/nintendo/snes', image: require('../../assets/consoles/snes.png') },
+  { key: 'gb', title: 'Game Boy', route: '/console/nintendo/gb', image: require('../../assets/consoles/gb.png') },
+  { key: 'n64', title: 'Nintendo 64', route: '/console/nintendo/n64', image: require('../../assets/consoles/ninty64.png') },
+  { key: 'nvb', title: 'Virtual Boy', route: '/console/nintendo/nvb', image: require('../../assets/consoles/nvb.png') },
+  { key: 'gba', title: 'Game Boy Advance', route: '/console/nintendo/gba', image: require('../../assets/consoles/gba.png') },
+  { key: 'ngcube', title: 'Game Cube', route: '/console/nintendo/ngcube', image: require('../../assets/consoles/gc.png') },
+  { key: 'nds', title: 'NDS', route: '/console/nintendo/nds', image: require('../../assets/consoles/nds.png') },
+  { key: 'wii', title: 'Wii', route: '/console/nintendo/wii', image: require('../../assets/consoles/wii.png') },
+  { key: 'n3ds', title: 'Nintendo 3DS', route: '/console/nintendo/n3ds', image: require('../../assets/consoles/n3ds.png') },
+  { key: 'wiiu', title: 'Wii U', route: '/console/nintendo/wiiu', image: require('../../assets/consoles/wiiu.png') },
+  { key: 'switch', title: 'Nintendo Switch', route: '/console/nintendo/switch', image: require('../../assets/consoles/ns.png') },
+  { key: 'ns2', title: 'Nintendo Switch 2', route: '/console/nintendo/ns2', image: require('../../assets/consoles/s2.png') },
+];
 
 export default function Nintendo() {
   const router = useRouter();
+  const screenWidth = Dimensions.get('window').width;
+  const numColumns = 3;
+  const itemMargin = 25;
+  const itemSize = Math.floor((screenWidth - 500 - itemMargin * (numColumns - 1)) / numColumns); 
+  // 40 = paddingHorizontal total (20 + 20)
 
   return (
     <View style={styles.container}>
       <Image source={require('../../assets/nintendo.png')} style={styles.logo} resizeMode="contain" />
-      
 
-      <View style={styles.buttons}>
-        <View style={styles.btnWrapper}>
-          <Button title="NES" onPress={() => router.push('/console/nintendo/nes')} />
-        </View>
-        <View style={styles.btnWrapper}>
-          <Button title="SNES" onPress={() => router.push('/console/nintendo/snes')} />
-        </View>
-        <View style={styles.btnWrapper}>
-          <Button title="Game Boy" onPress={() => router.push('/console/nintendo/gb')} />
-        </View>
-        <View style={styles.btnWrapper}>
-          <Button title="Nintendo 64" onPress={() => router.push('/console/nintendo/n64')} />
-        </View>
-        <View style={styles.btnWrapper}>
-          <Button title="Virtual Boy" onPress={() => router.push('/console/nintendo/nvb')} />
-        </View>
-        <View style={styles.btnWrapper}>
-          <Button title="Game Boy Advance" onPress={() => router.push('/console/nintendo/gba')} />
-        </View>
-        <View style={styles.btnWrapper}>
-          <Button title="Game Cube" onPress={() => router.push('/console/nintendo/ngcube')} />
-        </View>
-        <View style={styles.btnWrapper}>
-          <Button title="NDS" onPress={() => router.push('/console/nintendo/nds')} />
-        </View>
-        <View style={styles.btnWrapper}>
-          <Button title="Wii" onPress={() => router.push('/console/nintendo/wii')} />
-        </View>
-        <View style={styles.btnWrapper}>
-          <Button title="Nintendo 3DS" onPress={() => router.push('/console/nintendo/n3ds')} />
-        </View>
-        <View style={styles.btnWrapper}>
-          <Button title="Wii U" onPress={() => router.push('/console/nintendo/wiiu')} />
-            <Image source={require('../assets/wiiulogou.png')} style={styles.icon} />
-        </View>
-        <View style={styles.btnWrapper}>
-          <Button title="Nintendo Switch" onPress={() => router.push('/console/nintendo/switch')} />
-        </View>
-        <View style={styles.btnWrapper}>
-          <Button title="Nintendo Switch 2" onPress={() => router.push('/console/nintendo/ns2')} />
-        </View>
-      </View>
+      <FlatList
+        data={consoles}
+        keyExtractor={(item) => item.key}
+        numColumns={numColumns}
+        columnWrapperStyle={styles.row}
+        contentContainerStyle={styles.listContent}
+        renderItem={({ item }) => (
+          <TouchableOpacity
+            style={[styles.card, { width: itemSize, height: itemSize }]}
+            onPress={() => router.push(item.route)}
+            activeOpacity={0.8}
+            accessibilityRole="button"
+            accessibilityLabel={item.title}
+          >
+            <Image source={item.image} style={styles.cardImage} resizeMode="contain" />
+            <Text style={styles.cardText} numberOfLines={1}>{item.title}</Text>
+          </TouchableOpacity>
+        )}
+      />
     </View>
   );
 }
@@ -58,31 +64,48 @@ export default function Nintendo() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
     paddingHorizontal: 20,
+    paddingTop: 28,
     backgroundColor: '#e01212',
+    alignItems: 'center',
   },
   logo: {
     width: 160,
     height: 160,
-    marginBottom: 20,
+    marginBottom: 12,
   },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: '#ce0617',
-    marginBottom: 24,
-  },
-  buttons: {
-    width: '100%',
-    gap: 12,
+  listContent: {
+    paddingBottom: 4,
     alignItems: 'center',
-    
   },
-  btnWrapper: {
+  row: {
+    justifyContent: 'space-between',
+    marginBottom: 2,
     width: '100%',
-    maxWidth: 360,
-    color: '#ce0617',
+    maxWidth: 10000,
+  },
+  card: {
+    backgroundColor: '#b91515',
+    borderRadius: 8,
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 2,
+    // sombra
+    elevation: 3,
+    shadowColor: '#000',
+    shadowOpacity: 0.5,
+    shadowRadius: 6,
+    shadowOffset: { width: 0, height: 2 },
+  },
+  cardImage: {
+    width: '80%',
+    height: '80%',
+    marginBottom: 2,
+  },
+  cardText: {
+    fontSize: 15,
+    fontWeight: '600',
+    color: '#d3cccc',
+    textAlign: 'center',
   },
 });
