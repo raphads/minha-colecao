@@ -11,25 +11,16 @@ export default function Nintendo() {
 
       <View style={styles.buttons}>
         <View style={styles.btnWrapper}>
-          <Button title="PlayStation" onPress={() => router.push('/console/ps/ps1')} />
+          <Button title="Xbox" onPress={() => router.push('/console/ps/ps1')} />
         </View>
         <View style={styles.btnWrapper}>
-          <Button title="PlayStation 2" onPress={() => router.push('/console/ps/ps2')} />
+          <Button title="Xbox 360" onPress={() => router.push('/console/ps/ps2')} />
         </View>
          <View style={styles.btnWrapper}>
-          <Button title="PlayStation 3" onPress={() => router.push('/console/ps/ps3')} />
+          <Button title="Xbox One" onPress={() => router.push('/console/ps/ps3')} />
         </View>
          <View style={styles.btnWrapper}>
-          <Button title="PlayStation 4" onPress={() => router.push('/console/ps/ps4')} />
-        </View>
-         <View style={styles.btnWrapper}>
-          <Button title="PlayStation 5" onPress={() => router.push('/console/ps/ps5')} />
-        </View>
-         <View style={styles.btnWrapper}>
-          <Button title="PSP" onPress={() => router.push('/console/ps/psp')} />
-        </View>
-         <View style={styles.btnWrapper}>
-          <Button title="PS Vita" onPress={() => router.push('/console/ps/psv')} />
+          <Button title="Xbox Series" onPress={() => router.push('/console/ps/ps4')} />
         </View>
       </View>
     </View>
@@ -42,7 +33,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     paddingHorizontal: 20,
-    backgroundColor: '#6d86abaa',
+    backgroundColor: '#14c400aa',
   },
   logo: {
     width: 160,

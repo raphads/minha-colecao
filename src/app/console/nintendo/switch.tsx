@@ -60,6 +60,7 @@ export default function ConsoleSwitch() {
 
   return (
     <View style={styles.container}>
+      <Image source={require('../../../assets/switchlogo.png')} style={styles.logo} resizeMode="contain" />
       <TextInput
         placeholder="Pesquisar jogo do Switch..."
         value={query}
@@ -147,6 +148,11 @@ const styles = StyleSheet.create({
     padding: 8,
     borderRadius: 6,
     alignItems: "center",
+  },
+  logo: {
+    width: 160,
+    height: 160,
+    marginBottom: 20,
   },
   buttonText: { color: "#fff", fontWeight: "bold" },
 });

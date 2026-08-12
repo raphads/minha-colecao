@@ -11,10 +11,44 @@ export default function Nintendo() {
 
       <View style={styles.buttons}>
         <View style={styles.btnWrapper}>
+          <Button title="NES" onPress={() => router.push('/console/nintendo/nes')} />
+        </View>
+        <View style={styles.btnWrapper}>
+          <Button title="SNES" onPress={() => router.push('/console/nintendo/snes')} />
+        </View>
+        <View style={styles.btnWrapper}>
+          <Button title="Game Boy" onPress={() => router.push('/console/nintendo/gb')} />
+        </View>
+        <View style={styles.btnWrapper}>
+          <Button title="Nintendo 64" onPress={() => router.push('/console/nintendo/n64')} />
+        </View>
+        <View style={styles.btnWrapper}>
+          <Button title="Virtual Boy" onPress={() => router.push('/console/nintendo/nvb')} />
+        </View>
+        <View style={styles.btnWrapper}>
+          <Button title="Game Boy Advance" onPress={() => router.push('/console/nintendo/gba')} />
+        </View>
+        <View style={styles.btnWrapper}>
+          <Button title="Game Cube" onPress={() => router.push('/console/nintendo/ngcube')} />
+        </View>
+        <View style={styles.btnWrapper}>
+          <Button title="NDS" onPress={() => router.push('/console/nintendo/nds')} />
+        </View>
+        <View style={styles.btnWrapper}>
+          <Button title="Wii" onPress={() => router.push('/console/nintendo/wii')} />
+        </View>
+        <View style={styles.btnWrapper}>
           <Button title="Nintendo 3DS" onPress={() => router.push('/console/nintendo/n3ds')} />
         </View>
         <View style={styles.btnWrapper}>
+          <Button title="Wii U" onPress={() => router.push('/console/nintendo/wiiu')} />
+            <Image source={require('../assets/wiiulogou.png')} style={styles.icon} />
+        </View>
+        <View style={styles.btnWrapper}>
           <Button title="Nintendo Switch" onPress={() => router.push('/console/nintendo/switch')} />
+        </View>
+        <View style={styles.btnWrapper}>
+          <Button title="Nintendo Switch 2" onPress={() => router.push('/console/nintendo/ns2')} />
         </View>
       </View>
     </View>

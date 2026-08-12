@@ -24,7 +24,7 @@ export default function Home() {
         <Text style={styles.cardText}>Sony</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={[styles.card, { backgroundColor: '#035f06' }]} onPress={() => router.push('/fabricantes/sony')}>
+      <TouchableOpacity style={[styles.card, { backgroundColor: '#035f06' }]} onPress={() => router.push('/fabricantes/xboxms')}>
         <Text style={styles.cardText}>Xbox</Text>
       </TouchableOpacity>
     </View>

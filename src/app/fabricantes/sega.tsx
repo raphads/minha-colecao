@@ -11,19 +11,19 @@ export default function Sega() {
 
       <View style={styles.buttons}>
         <View style={styles.btnWrapper}>
-          <Button title="Mega Drive" onPress={() => router.push('/console/megadrive')} />
+          <Button title="Mega Drive" onPress={() => router.push('/console/sega/megadrive')} />
         </View>
         <View style={styles.btnWrapper}>
-          <Button title="Master System" onPress={() => router.push('/console/mastersystes')} />
+          <Button title="Master System" onPress={() => router.push('/console/sega/mastersystes')} />
         </View>
          <View style={styles.btnWrapper}>
-          <Button title="Game Gear" onPress={() => router.push('/console/gamegear')} />
+          <Button title="Game Gear" onPress={() => router.push('/console/sega/gamegear')} />
         </View>
          <View style={styles.btnWrapper}>
-          <Button title="Sega Saturn" onPress={() => router.push('/console/segasa')} />
+          <Button title="Sega Saturn" onPress={() => router.push('/console/sega/segasa')} />
         </View>
          <View style={styles.btnWrapper}>
-          <Button title="Dreamcast" onPress={() => router.push('/console/dreamcast')} />
+          <Button title="Dreamcast" onPress={() => router.push('/console/sega/dreamcast')} />
         </View>
       </View>
     </View>

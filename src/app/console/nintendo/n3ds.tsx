@@ -1,15 +1,15 @@
-import React, { useState } from "react";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useState } from "react";
 import {
-  View,
-  TextInput,
   Button,
   FlatList,
-  Text,
-  StyleSheet,
   Image,
+  StyleSheet,
+  Text,
+  TextInput,
   TouchableOpacity,
+  View,
 } from "react-native";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function Console3DS() {
   const [query, setQuery] = useState("");
@@ -59,6 +59,7 @@ export default function Console3DS() {
 
   return (
     <View style={styles.container}>
+      <Image source={require('../../../assets/logo3ds.png')} style={styles.logo} resizeMode="contain" />
       <TextInput
         placeholder="Pesquisar jogo do 3DS..."
         value={query}
@@ -136,6 +137,11 @@ const styles = StyleSheet.create({
     backgroundColor: "#eee",
     marginVertical: 5,
     borderRadius: 8,
+  },
+   logo: {
+    width: 160,
+    height: 160,
+    marginBottom: 20,
   },
   cardText: { fontSize: 16, fontWeight: "600" },
   cover: { width: 120, height: 160, marginTop: 8 },
