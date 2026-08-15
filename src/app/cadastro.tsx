@@ -14,7 +14,7 @@ export default function CadastroScreen() {
 
   function validarSenha(senha: string) {
     // mínimo 6 caracteres, pelo menos uma letra e um número
-    const regex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/;
+    const regex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
     return regex.test(senha);
   }
 
