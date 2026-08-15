@@ -11,14 +11,14 @@ import {
 } from 'react-native';
 
 const consoles = [
-  { key: 'nes', title: 'Master System', route: '/console/sega/mastersystes', image: require('../../assets/consoles/ms.png') },
-  { key: 'snes', title: 'Mega Drive', route: '/console/sega/megadrive', image: require('../../assets/consoles/md.png') },
-  { key: 'gb', title: 'Game Gear', route: '/console/sega/gamegear', image: require('../../assets/consoles/gg.png') },
-  { key: 'n64', title: 'Sega Saturn', route: '/console/sega/segasa', image: require('../../assets/consoles/ss.png') },
-  { key: 'nvb', title: 'Dreamcast', route: '/console/sega/dreamcas', image: require('../../assets/consoles/dc.png') },
+  { key: 'ms', title: 'Master System', route: '/console/sega/mastersystes', image: require('../../assets/consoles/ms.png') },
+  { key: 'md', title: 'Mega Drive', route: '/console/sega/megadrive', image: require('../../assets/consoles/md.png') },
+  { key: 'gg', title: 'Game Gear', route: '/console/sega/gamegear', image: require('../../assets/consoles/gg.png') },
+  { key: 'ss', title: 'Sega Saturn', route: '/console/sega/segasa', image: require('../../assets/consoles/ss.png') },
+  { key: 'dc', title: 'Dreamcast', route: '/console/sega/dreamcas', image: require('../../assets/consoles/dc.png') },
 ];
 
-export default function Nintendo() {
+export default function Sega() {
   const router = useRouter();
   const screenWidth = Dimensions.get('window').width;
   const numColumns = 3;

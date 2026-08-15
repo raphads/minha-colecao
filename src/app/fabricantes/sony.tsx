@@ -11,20 +11,14 @@ import {
 } from 'react-native';
 
 const consoles = [
-  { key: 'nes', title: 'PlayStation', route: '/console/nintendo/nes', image: require('../../assets/consoles/nes.png') },
-  { key: 'snes', title: 'PlayStation 2', route: '/console/nintendo/snes', image: require('../../assets/consoles/snes.png') },
-  { key: 'gb', title: 'PlayStation 3', route: '/console/nintendo/gb', image: require('../../assets/consoles/gb.png') },
-  { key: 'n64', title: 'PlayStation 4', route: '/console/nintendo/n64', image: require('../../assets/consoles/ninty64.png') },
-  { key: 'nvb', title: 'PlayStation 5', route: '/console/nintendo/nvb', image: require('../../assets/consoles/nvb.png') },
-  { key: 'gba', title: 'PSP', route: '/console/nintendo/gba', image: require('../../assets/consoles/gba.png') },
-  { key: 'ngcube', title: 'PS Vita', route: '/console/nintendo/ngcube', image: require('../../assets/consoles/gc.png') },
-  { key: 'nds', title: 'NDS', route: '/console/nintendo/nds', image: require('../../assets/consoles/nds.png') },
-  { key: 'wii', title: 'Wii', route: '/console/nintendo/wii', image: require('../../assets/consoles/wii.png') },
-  { key: 'n3ds', title: 'Nintendo 3DS', route: '/console/nintendo/n3ds', image: require('../../assets/consoles/n3ds.png') },
-  { key: 'wiiu', title: 'Wii U', route: '/console/nintendo/wiiu', image: require('../../assets/consoles/wiiu.png') },
-  { key: 'switch', title: 'Nintendo Switch', route: '/console/nintendo/switch', image: require('../../assets/consoles/ns.png') },
-  { key: 'ns2', title: 'Nintendo Switch 2', route: '/console/nintendo/ns2', image: require('../../assets/consoles/s2.png') },
-];
+  { key: 'ps1', title: 'PlayStation', route: '/console/ps/ps1', image: require('../../assets/consoles/ps1.png') },
+  { key: 'ps2', title: 'PlayStation 2', route: '/console/ps/ps2', image: require('../../assets/consoles/ps2.png') },
+  { key: 'ps3', title: 'PlayStation 3', route: '/console/ps/ps3', image: require('../../assets/consoles/ps3.png') },
+  { key: 'ps4', title: 'PlayStation 4', route: '/console/ps/ps4', image: require('../../assets/consoles/ps4.png') },
+  { key: 'ps5', title: 'PlayStation 5', route: '/console/ps/ps5', image: require('../../assets/consoles/ps5.png') },
+  { key: 'psp', title: 'PSP', route: '/console/ps/psp', image: require('../../assets/consoles/psp.png') },
+  { key: 'psv', title: 'PS Vita', route: '/console/ps/psv', image: require('../../assets/consoles/psv.png') },
+  ];
 
 export default function Sony() {
   const router = useRouter();

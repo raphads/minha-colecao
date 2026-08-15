@@ -6,21 +6,21 @@ export default function Nintendo() {
 
   return (
     <View style={styles.container}>
-      <Image source={require('../../assets/pslogo.png')} style={styles.logo} resizeMode="contain" />
+      <Image source={require('../../assets/xboxlogo.png')} style={styles.logo} resizeMode="contain" />
       
 
       <View style={styles.buttons}>
         <View style={styles.btnWrapper}>
-          <Button title="Xbox" onPress={() => router.push('/console/ps/ps1')} />
+          <Button title="Xbox" onPress={() => router.push('/console/xbox/xbox')} />
         </View>
         <View style={styles.btnWrapper}>
-          <Button title="Xbox 360" onPress={() => router.push('/console/ps/ps2')} />
+          <Button title="Xbox 360" onPress={() => router.push('/console/xbox/x360')} />
         </View>
          <View style={styles.btnWrapper}>
-          <Button title="Xbox One" onPress={() => router.push('/console/ps/ps3')} />
+          <Button title="Xbox One" onPress={() => router.push('/console/xbox/xone')} />
         </View>
          <View style={styles.btnWrapper}>
-          <Button title="Xbox Series" onPress={() => router.push('/console/ps/ps4')} />
+          <Button title="Xbox Series" onPress={() => router.push('/console/xbox/xs')} />
         </View>
       </View>
     </View>
