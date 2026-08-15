@@ -1,19 +1,20 @@
 import { useRouter } from 'expo-router';
-import React from 'react';
 import {
-  View,
-  FlatList,
-  TouchableOpacity,
-  Image,
-  Text,
-  StyleSheet,
   Dimensions,
+  FlatList,
+  Image,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
 } from 'react-native';
 
 const consoles = [
   { key: 'ms', title: 'Master System', route: '/console/sega/mastersystes', image: require('../../assets/consoles/ms.png') },
   { key: 'md', title: 'Mega Drive', route: '/console/sega/megadrive', image: require('../../assets/consoles/md.png') },
   { key: 'gg', title: 'Game Gear', route: '/console/sega/gamegear', image: require('../../assets/consoles/gg.png') },
+  { key: 'segacd', title: 'Sega CD', route: '/console/sega/segacd', image: require('../../assets/consoles/segacd.png') },
+  { key: 's32x', title: 'Sega 32x', route: '/console/sega/s32x', image: require('../../assets/consoles/s32x.png') },
   { key: 'ss', title: 'Sega Saturn', route: '/console/sega/segasa', image: require('../../assets/consoles/ss.png') },
   { key: 'dc', title: 'Dreamcast', route: '/console/sega/dreamcas', image: require('../../assets/consoles/dc.png') },
 ];
