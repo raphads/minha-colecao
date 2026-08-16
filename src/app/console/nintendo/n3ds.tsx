@@ -18,8 +18,12 @@ import {
  * - For Netlify web build: set REACT_APP_API_URL in Netlify env vars (ex: https://seu-backend.onrailway.app)
  * - For native/dev: you can set global.API_URL before app start (e.g., in App entry) or use a config lib.
  */
+// coloque exatamente onde estava const API
 const API =
-  (typeof process !== "undefined" && process.env?.REACT_APP_API_URL);
+  (typeof process !== "undefined" && (process.env.REACT_APP_API_URL || process.env.EXPO_PUBLIC_API_URL)) ||
+  (global && global.API_URL) ||
+  "http://localhost:3001";
+
 console.log("API usada pelo frontend:", API);
 
 export default function Console3DS() {
@@ -53,13 +57,9 @@ export default function Console3DS() {
 
     setLoading(true);
     try {
-const API =
-  (typeof process !== "undefined" && (process.env.REACT_APP_API_URL || process.env.EXPO_PUBLIC_API_URL)) ||
-  (global && global.API_URL) ||
-  "http://localhost:3001";
-
-console.log("API usada pelo frontend:", API);
-;
+      const resp = await fetch(
+        `${API}/games?search=${encodeURIComponent(query)}&platform=37`
+      );
       if (!resp.ok) {
         const text = await resp.text();
         throw new Error(`Erro na API: ${resp.status} ${text}`);
