@@ -19,8 +19,7 @@ import {
  * - For native/dev: you can set global.API_URL before app start (e.g., in App entry) or use a config lib.
  */
 const API =
-  (typeof process !== "undefined" && process.env?.REACT_APP_API_URL) ||
-  "http://localhost:3001";
+  (typeof process !== "undefined" && process.env?.REACT_APP_API_URL);
 
 export default function Console3DS() {
   const [query, setQuery] = useState("");
