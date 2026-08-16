@@ -23,6 +23,7 @@ const API =
   (typeof process !== "undefined" && (process.env.REACT_APP_API_URL || process.env.EXPO_PUBLIC_API_URL)) ||
   (global && global.API_URL) ||
   "http://localhost:3001";
+export const API_BASE = API.replace(/\/+$/, '');
 
 console.log("API usada pelo frontend:", API);
 
