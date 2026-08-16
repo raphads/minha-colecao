@@ -20,7 +20,6 @@ import {
  */
 const API =
   (typeof process !== "undefined" && process.env?.REACT_APP_API_URL) ||
-  (global && global.API_URL) ||
   "http://localhost:3001";
 
 export default function Console3DS() {
