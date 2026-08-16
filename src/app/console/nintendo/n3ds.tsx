@@ -53,9 +53,13 @@ export default function Console3DS() {
 
     setLoading(true);
     try {
-      const resp = await fetch(
-        `${API}/games?search=${encodeURIComponent(query)}&platform=37`
-      );
+const API =
+  (typeof process !== "undefined" && (process.env.REACT_APP_API_URL || process.env.EXPO_PUBLIC_API_URL)) ||
+  (global && global.API_URL) ||
+  "http://localhost:3001";
+
+console.log("API usada pelo frontend:", API);
+;
       if (!resp.ok) {
         const text = await resp.text();
         throw new Error(`Erro na API: ${resp.status} ${text}`);
