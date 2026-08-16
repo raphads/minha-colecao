@@ -20,6 +20,7 @@ import {
  */
 const API =
   (typeof process !== "undefined" && process.env?.REACT_APP_API_URL);
+console.log("API usada pelo frontend:", API);
 
 export default function Console3DS() {
   const [query, setQuery] = useState("");
